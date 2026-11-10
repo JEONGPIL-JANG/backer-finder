@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; connect-src 'self'; manifest-src 'self'; worker-src 'self'">
+<meta name="theme-color" content="#2f5d50">
+<title>후원자 명단 찾기</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icons/icon-192.png">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="app">
+  <header class="top">
+    <h1>후원자 명단 찾기</h1>
+    <div class="searchbox">
+      <input id="q" type="search" inputmode="search" autocomplete="off" autocapitalize="off" spellcheck="false"
+             placeholder="이름이나 닉네임 (초성도 돼요: ㄱㅁㅈ)" aria-label="이름 검색">
+      <button id="clear" type="button" aria-label="지우기" hidden>×</button>
+    </div>
+    <p id="count" class="count" aria-live="polite"></p>
+  </header>
+
+  <main class="body">
+    <section id="listPane" class="list-pane">
+      <div id="home" class="home">
+        <p class="howto">이름 일부만 쳐도 찾아요. 결과를 누르면 책 쪽 사진에서 위치를 노란 상자로 보여 줘요.</p>
+        <p class="pages-title">쪽 넘겨 보기</p>
+        <div id="pageButtons" class="page-buttons"></div>
+      </div>
+      <ol id="results" class="results" hidden></ol>
+      <div id="similar" class="similar" hidden></div>
+      <p id="loading" class="loading">명단을 불러오는 중…</p>
+    </section>
+
+    <section id="viewer" class="viewer" hidden aria-label="쪽 사진">
+      <div class="viewer-bar">
+        <button id="close" type="button" class="vbtn">← 목록</button>
+        <span id="pageLabel" class="page-label"></span>
+        <span class="spacer"></span>
+        <button id="prev" type="button" class="vbtn" aria-label="이전 결과">◀ 이전</button>
+        <span id="pos" class="pos"></span>
+        <button id="next" type="button" class="vbtn" aria-label="다음 결과">다음 ▶</button>
+      </div>
+      <div id="stage" class="stage">
+        <div id="canvas" class="canvas">
+          <img id="pageImg" alt="">
+          <div id="boxes" class="boxes"></div>
+        </div>
+      </div>
+      <div class="viewer-foot">
+        <button id="focus" type="button" class="vbtn">이름 위치로</button>
+        <button id="zoomOut" type="button" class="vbtn" aria-label="축소">－</button>
+        <button id="zoomIn" type="button" class="vbtn" aria-label="확대">＋</button>
+        <span id="cellText" class="cell-text"></span>
+      </div>
+    </section>
+  </main>
+  <footer class="foot">이 페이지는 후원자 확인용입니다.</footer>
+</div>
+<script src="search.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
